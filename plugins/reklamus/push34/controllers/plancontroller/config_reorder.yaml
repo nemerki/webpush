@@ -1,0 +1,4 @@
+title: PlanController
+modelClass: Reklamus\Push34\Models\Plan
+toolbar:
+    buttons: reorder_toolbar

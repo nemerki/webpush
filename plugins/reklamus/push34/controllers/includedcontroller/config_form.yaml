@@ -1,0 +1,10 @@
+name: IncludedController
+form: $/reklamus/push34/models/included/fields.yaml
+modelClass: Reklamus\Push34\Models\Included
+defaultRedirect: reklamus/push34/includedcontroller
+create:
+    redirect: 'reklamus/push34/includedcontroller/update/:id'
+    redirectClose: reklamus/push34/includedcontroller
+update:
+    redirect: reklamus/push34/includedcontroller
+    redirectClose: reklamus/push34/includedcontroller

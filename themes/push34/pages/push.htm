@@ -1,0 +1,96 @@
+title = "push"
+url = "/push"
+is_hidden = 0
+
+[Push]
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Push</title>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+
+    <link rel="manifest" href="manifest.json">
+
+    {% framework extras %}
+    <script>
+
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBNlLuMYSRKJEMIBSKIc4SO-JcxvW83ONs",
+            authDomain: "push-2384f.firebaseapp.com",
+            databaseURL: "https://push-2384f.firebaseio.com",
+            projectId: "push-2384f",
+            storageBucket: "push-2384f.appspot.com",
+            messagingSenderId: "524912866681"
+        };
+        firebase.initializeApp(config);
+        // Retrieve Firebase Messaging object.
+        const messaging = firebase.messaging();
+
+        messaging.requestPermission().then(function () {
+            console.log('Notification permission granted.');
+            if (isTokenSentToServer()) {
+                console.log('Token already saved.');
+            } else {
+                getRegToken();
+            }
+
+        }).catch(function (err) {
+            console.log('Unable to get permission to notify.', err);
+        });
+
+
+        function getRegToken() {
+            messaging.getToken().then(function (currentToken) {
+                if (currentToken) {
+                    saveToken(currentToken);
+                    console.log(currentToken);
+                    setTokenSentToServer(true);
+                } else {
+                    console.log('No Instance ID token available. Request permission to generate one.');
+
+                    setTokenSentToServer(false);
+                }
+            }).catch(function (err) {
+                console.log('An error occurred while retrieving token. ', err);
+                showToken('Error retrieving Instance ID token. ', err);
+                setTokenSentToServer(false);
+            });
+        }
+
+        function setTokenSentToServer(sent) {
+            window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+        }
+
+        function isTokenSentToServer() {
+            return window.localStorage.getItem('sentToServer') === '1';
+        }
+
+        function saveToken(currentToken) {
+
+            $.request('onSaveToken', {
+                data: {sub_id: currentToken},
+                success: function() {
+                    console.log('Token save ajax !');
+                }
+            })
+
+
+        }
+
+    </script>
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+fields:
+    is_active:
+        label: 'reklamus.push34::lang.all.status'
+        span: full
+        default: 1
+        type: switch
+    name:
+        label: 'reklamus.push34::lang.all.name'
+        span: full
+        type: text
+    subscribers:
+        label: 'Subscribers Count'
+        span: full
+        type: subscribers
+        disabled: 1
+        hidden: 1
+    includeds:
+        label: Included
+        span: full
+        type: includeds
+        disabled: 1
+        hidden: 1
+    icon:
+        label: 'reklamus.push34::lang.plan.icon'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+tabs:
+    fields:
+        included:
+            label: 'reklamus.push34::lang.plan.included'
+            prompt: 'Add new item'
+            span: full
+            disabled: 0
+            hidden: 0
+            type: repeater
+            tab: Included
+            form:
+                fields:
+                    included_name:
+                        label: 'reklamus.push34::lang.plan.included'
+                        span: full
+                        disabled: 0
+                        hidden: 0
+                        type: text
+        subscriber:
+            label: 'reklamus.push34::lang.permission.subscribers'
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            tab: 'reklamus.push34::lang.permission.subscribers'
+            form:
+                fields:
+                    subscriber_count:
+                        label: 'reklamus.push34::lang.permission.subscribers'
+                        span: full
+                        type: text
+                    subscriber_mprice:
+                        label: 'reklamus.push34::lang.plan.subscribers_price'
+                        span: full
+                        type: text
+                    subscriber_yprice:
+                        label: 'reklamus.push34::lang.plan.subscriber_yprice'
+                        span: full
+                        type: text

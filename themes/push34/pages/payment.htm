@@ -1,0 +1,224 @@
+title = "payment"
+url = "/payment"
+layout = "default"
+is_hidden = 0
+
+[Payment]
+==
+<div class="row">
+    <div class="col-xl-12">
+        <!--Begin::Main Portlet-->
+        <div class="m-portlet">
+            <!--begin: Portlet Head-->
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                         Sipariş Özeti
+                        </h3>
+                    </div>
+                </div>
+
+            </div>
+            <!--end: Portlet Head-->
+
+            <div class="m-portlet__body m-portlet__body--no-padding">
+                <div class="m-invoice-2">
+                    <div class="m-invoice__wrapper">
+                        <div class="m-invoice__footer mt-0">
+                            <div class="m-invoice__table  m-invoice__table--centered table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            {{ 'Plan Adı'|_ }}
+                                        </th>
+                                        <th>
+                                            {{ 'Period'|_ }}
+                                        </th>
+                                        <th>
+                                            {{ 'Adet'|_ }}
+                                        </th>
+                                        <th>
+                                            {{ 'Toplam Fiyat'|_ }}
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            {{ plan_name }}
+                                        </td>
+                                        <td>
+                                            {{ plan_period|_ }}
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td class="m--font-danger">
+                                            {{ plan_price }} TL
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--begin: Form Wizard-->
+
+
+            <!--end: Form Wizard-->
+        </div>
+        <!--End::Main Portlet-->
+    </div>
+
+</div>
+<form action="" class="m-form">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="m-portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+												<span class="m-portlet__head-icon m--hide">
+													<i class="la la-gear"></i>
+												</span>
+                            <h3 class="m-portlet__head-text">
+                                Fatura Bilgileri
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <!--begin::Form-->
+
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                           İsim:
+                        </label>
+                        <input type="email" class="form-control m-input" placeholder="İsminizi Giriniz">
+                    </div>
+
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                            Soyisim:
+                        </label>
+                        <input type="email" class="form-control m-input" placeholder="Soyisminizi Giriniz">
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                            Adres:
+                        </label>
+                        <input type="email" class="form-control m-input" placeholder="Adresinizi Giriniz">
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                            Şehir:
+                        </label>
+                        <input type="email" class="form-control m-input" placeholder="Şehrinizi Giriniz">
+                    </div>
+
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                            Posta :
+                        </label>
+                        <input type="email" class="form-control m-input" placeholder="Post Kodunuzu Giriniz">
+                    </div>
+
+                </div>
+
+                <!--end::Form-->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="m-portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+												<span class="m-portlet__head-icon m--hide">
+													<i class="la la-gear"></i>
+												</span>
+                            <h3 class="m-portlet__head-text">
+                                Kredi Kartı Bilgileri
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <!--begin::Form-->
+
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                            Kart Numarası :
+                        </label>
+                        <input type="email" class="form-control m-input" >
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                          Son Kullanım Tarihi :
+                        </label>
+                        <input type="email" class="form-control m-input" >
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                           CVV :
+                        </label>
+                        <input type="email" class="form-control m-input" >
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="example_input_full_name">
+                            Kart Sahibinin adı :
+                        </label>
+                        <input type="email" class="form-control m-input" >
+                    </div>
+
+                </div>
+
+
+                <!--end::Form-->
+            </div>
+            <div class="alert alert-success" role="alert">
+                <strong>
+                    Sizden Tahsil edilecek tutar {{ plan_price }} TL
+                </strong>
+
+            </div>
+            <div class="m-portlet__foot m-portlet__foot--fit">
+                <div class="m-form__actions m-form__actions--right">
+                    <button type="button" class="paymetButton btn btn-brand">
+                        Submit
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).on('click', '.paymetButton', function () {
+                 $.oc.stripeLoadIndicator.show();
+
+                $.request('onPayment', {
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide();
+                    }
+
+
+                });
+            });
+        });
+
+    </script>
+
+{% endput %}

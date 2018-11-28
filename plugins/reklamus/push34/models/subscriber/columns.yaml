@@ -1,0 +1,6 @@
+columns:
+    count:
+        label: 'reklamus.push34::lang.subscribers.count'
+        type: text
+        searchable: true
+        sortable: true

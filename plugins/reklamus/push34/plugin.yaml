@@ -1,0 +1,70 @@
+plugin:
+    name: 'reklamus.push34::lang.plugin.name'
+    description: 'reklamus.push34::lang.plugin.description'
+    author: Reklamus
+    icon: oc-icon-adn
+    homepage: ''
+permissions:
+    manage_push34:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.push34'
+    manage_design:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.design'
+    manage_app:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.app'
+    manage_notification:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.notification'
+    manage_registrant:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.registrant'
+    manage_plan:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.plan'
+    manage_subscriber:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.subscribers'
+    manage_included:
+        tab: 'reklamus.push34::lang.permission.push34'
+        label: 'reklamus.push34::lang.permission.included'
+navigation:
+    main-menu-push34:
+        label: 'reklamus.push34::lang.menu.push34'
+        url: reklamus/push34/designcontroller
+        icon: icon-adn
+        permissions:
+            - manage_push34
+        order: '99'
+        sideMenu:
+            side-menu-design:
+                label: 'reklamus.push34::lang.menu.design'
+                url: reklamus/push34/designcontroller
+                icon: icon-sitemap
+                permissions:
+                    - manage_design
+            side-menu-app:
+                label: 'reklamus.push34::lang.menu.app'
+                url: reklamus/push34/appcontroller
+                icon: icon-sheqel
+                permissions:
+                    - manage_app
+            side-menu-notification:
+                label: 'reklamus.push34::lang.menu.notification'
+                url: reklamus/push34/notificationcontroller
+                icon: icon-circle-o-notch
+                permissions:
+                    - manage_notification
+            side-menu-registrant:
+                label: 'reklamus.push34::lang.menu.registrant'
+                url: reklamus/push34/registrantcontroller
+                icon: icon-users
+                permissions:
+                    - manage_registrant
+            side-menu-plan:
+                label: 'reklamus.push34::lang.menu.plan'
+                url: reklamus/push34/plancontroller
+                icon: icon-shopping-cart
+                permissions:
+                    - manage_plan

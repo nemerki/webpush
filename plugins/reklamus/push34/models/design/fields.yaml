@@ -1,0 +1,9 @@
+fields:
+    status:
+        label: 'reklamus.push34::lang.design.status'
+        span: auto
+        type: text
+    pop_title:
+        label: 'Pop Title'
+        span: auto
+        type: text

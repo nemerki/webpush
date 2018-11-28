@@ -1,0 +1,24 @@
+<select name="<?= $name ?>" class="s2" multiple id="">
+    <?php
+    foreach ($subscribers as $key=>$val) { ?>
+    <option value="<?= $key ?>"
+    <?php echo in_array($key,$value)?'selected=selected':''   ; ?>><?= $val ?></option>
+
+    <?php } ?>
+</select>
+
+
+<script>
+    $(document).ready(function () {
+        $(".s2").select2({
+            placeholder: "Select a subscribe count",
+
+        })
+    });
+
+</script>
+<style>
+    .s2{
+        width: 100%;
+    }
+</style>

@@ -1,0 +1,10 @@
+fields:
+    is_active:
+        label: Switch
+        span: full
+        default: 1
+        type: switch
+    name:
+        label: 'reklamus.push34::lang.all.name'
+        span: auto
+        type: text

@@ -1,0 +1,98 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table reklamus_push34_designs'
+    - builder_table_create_reklamus_push34_designs.php
+1.0.3:
+    - 'Updated table reklamus_push34_designs'
+    - builder_table_update_reklamus_push34_designs.php
+1.0.4:
+    - 'Updated table reklamus_push34_designs'
+    - builder_table_update_reklamus_push34_designs_2.php
+1.0.5:
+    - 'Created table reklamus_push34_'
+    - builder_table_create_reklamus_push34_.php
+1.0.6:
+    - 'Updated table reklamus_push34_'
+    - builder_table_update_reklamus_push34_apps.php
+1.0.7:
+    - 'Created table reklamus_push34_notifications'
+    - builder_table_create_reklamus_push34_notifications.php
+1.0.8:
+    - 'Created table reklamus_push34_registrants'
+    - builder_table_create_reklamus_push34_registrants.php
+1.0.9:
+    - 'Updated table reklamus_push34_registrants'
+    - builder_table_update_reklamus_push34_registrants.php
+1.0.10:
+    - 'Created table reklamus_push34_plans'
+    - builder_table_create_reklamus_push34_plans.php
+1.0.11:
+    - 'Created table reklamus_push34_subscribers'
+    - builder_table_create_reklamus_push34_subscribers.php
+1.0.12:
+    - 'Updated table reklamus_push34_plans'
+    - builder_table_update_reklamus_push34_plans.php
+1.0.13:
+    - 'Updated table reklamus_push34_plans'
+    - builder_table_update_reklamus_push34_plans_2.php
+1.0.14:
+    - 'Updated table reklamus_push34_plans'
+    - builder_table_update_reklamus_push34_plans_3.php
+1.0.15:
+    - 'Updated table reklamus_push34_subscribers'
+    - builder_table_update_reklamus_push34_subscribers.php
+1.0.16:
+    - 'Created table reklamus_push34_plan_subscribers'
+    - builder_table_create_reklamus_push34_plan_subscribers.php
+1.0.17:
+    - 'Created table reklamus_push34_includeds'
+    - builder_table_create_reklamus_push34_includeds.php
+1.0.18:
+    - 'Created table reklamus_push34_included_plans'
+    - builder_table_create_reklamus_push34_included_plans.php
+1.0.19:
+    - 'Updated table reklamus_push34_plans'
+    - builder_table_update_reklamus_push34_plans_4.php
+1.0.20:
+    - 'Updated table reklamus_push34_plans'
+    - builder_table_update_reklamus_push34_plans_5.php
+1.0.21:
+    - 'Created table reklamus_push34_orders'
+    - builder_table_create_reklamus_push34_orders.php
+1.0.22:
+    - 'Updated table reklamus_push34_orders'
+    - builder_table_update_reklamus_push34_orders.php
+1.0.23:
+    - 'Created table reklamus_push34_action'
+    - builder_table_create_reklamus_push34_action.php
+1.0.24:
+    - 'Updated table reklamus_push34_action'
+    - builder_table_update_reklamus_push34_actions.php
+1.0.25:
+    - 'Updated table reklamus_push34_notifications'
+    - builder_table_update_reklamus_push34_notifications.php
+1.0.26:
+    - 'Updated table reklamus_push34_registrants'
+    - builder_table_update_reklamus_push34_registrants_2.php
+1.0.27:
+    - 'Created table reklamus_push34_send_token'
+    - builder_table_create_reklamus_push34_send_token.php
+1.0.28:
+    - 'Updated table reklamus_push34_notifications'
+    - builder_table_update_reklamus_push34_notifications_2.php
+1.0.29:
+    - 'Updated table reklamus_push34_notifications'
+    - builder_table_update_reklamus_push34_notifications_3.php
+1.0.30:
+    - 'Updated table reklamus_push34_notifications'
+    - builder_table_update_reklamus_push34_notifications_4.php
+1.0.31:
+    - 'Updated table reklamus_push34_notifications'
+    - builder_table_update_reklamus_push34_notifications_5.php
+1.0.32:
+    - 'Updated table reklamus_push34_designs'
+    - builder_table_update_reklamus_push34_designs_3.php
+1.0.33:
+    - 'Updated table reklamus_push34_registrants'
+    - builder_table_update_reklamus_push34_registrants_3.php

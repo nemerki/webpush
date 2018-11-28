@@ -1,0 +1,64 @@
+title = "Site code"
+url = "/site-code"
+layout = "default"
+is_hidden = 0
+==
+<div class="m-portlet">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">
+                    Site Kodu
+                </h3>
+            </div>
+        </div>
+    </div>
+    <!--begin::Form-->
+    <div class="m-portlet__body" style="background: #ddd">
+        {% for app in user.apps %}
+            <div class="form-group m-form__group row">
+
+                <div class="col-lg-6 col-md-9 col-sm-12">
+							<textarea readonly class="form-control bg-white" id="m_clipboard_2" rows="9">
+    &lt;script language="javascript"&gt;
+    var _prPushtr = {
+        paramNode: '{{ app.app_key }}'
+    }
+    &lt;/script&gt;
+    &lt;script type="text/javascript" src="//push34.com/assets/js/push34-mainOrj.js"&gt;&lt;/script&gt;
+							</textarea>
+                    <div class="m--space-10"></div>
+                    <a href="#" class="btn btn-success" data-clipboard="true" data-clipboard-target="#m_clipboard_2">
+                        <i class="la la-clipboard"></i>
+                        {{ 'Kopyala'|_ }}
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-9 col-sm-12 ">
+
+                    <div class="alert alert-info" role="alert">
+
+                    {{ app.subdomain_name }}  app  için bu kodu sitenizin &lt;/body&gt; etiketini hemen öncesine yerleştirin.
+                    </div>
+
+
+                </div>
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+    <!--end::Form-->
+</div>
+
+{% put scripts %}
+    <script src="{{ 'assets/demo/default/custom/components/forms/widgets/clipboard.js'|theme }}"
+            type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+        });
+
+    </script>
+
+{% endput %}

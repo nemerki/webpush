@@ -1,0 +1,10 @@
+name: AppController
+form: $/reklamus/push34/models/app/fields.yaml
+modelClass: Reklamus\Push34\Models\App
+defaultRedirect: reklamus/push34/appcontroller
+create:
+    redirect: 'reklamus/push34/appcontroller/update/:id'
+    redirectClose: reklamus/push34/appcontroller
+update:
+    redirect: reklamus/push34/appcontroller
+    redirectClose: reklamus/push34/appcontroller

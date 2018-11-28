@@ -1,0 +1,4 @@
+columns:
+    amount:
+        label: Amount
+        type: text

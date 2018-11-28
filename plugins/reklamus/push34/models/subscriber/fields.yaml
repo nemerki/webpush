@@ -1,0 +1,10 @@
+fields:
+    is_active:
+        label: 'reklamus.push34::lang.all.status'
+        span: full
+        default: 1
+        type: switch
+    count:
+        label: 'reklamus.push34::lang.subscribers.count'
+        span: auto
+        type: text

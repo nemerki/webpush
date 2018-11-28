@@ -1,0 +1,252 @@
+title = "Upgrade"
+url = "/upgrade"
+layout = "default"
+is_hidden = 0
+
+[RecordList plan]
+modelClass = "Reklamus\Push34\Models\Plan"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[Upgrade]
+==
+<div class="m-portlet">
+    <div class="m-portlet__body m-portlet__body--no-padding">
+        <div class="m-pricing-table-2">
+            <div class="m-pricing-table-2__head">
+              {#  <div class="m-pricing-table-2__title m--font-light">
+                    <h1>
+                        Transparent & Simple Pricing
+                    </h1>
+                </div>#}
+                <div class="btn-group nav m-btn-group m-btn-group--pill m-btn-group--air" role="group">
+                    <button type="button" class="btn m-btn--pill  active m-btn--wide m-btn--uppercase m-btn--bolder"
+                            data-toggle="tab" href="#m-pricing-table_content1" role="tab" aria-expanded="true">
+                       Aylık Plans
+                    </button>
+                    <button type="button" class="btn m-btn--pill  m-btn--wide m-btn--uppercase m-btn--bolder"
+                            data-toggle="tab" href="#m-pricing-table_content2" role="tab" aria-expanded="false">
+                        Yıllık Plans
+                    </button>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="m-pricing-table_content1" aria-expanded="true">
+                    <div class="m-pricing-table-2__content">
+                        <div class="m-pricing-table-2__container">
+                            <div class="m-pricing-table-2__items row">
+                                {% for rec in plan.records %}
+                                    <div class="m-pricing-table-2__item col-lg-4">
+                                        <div class="m-pricing-table-2__visual">
+                                            <div class="m-pricing-table-2__hexagon"></div>
+                                            <span class="m-pricing-table-2__icon m--font-info">
+													<img style="height: 90px;" class="img-fluid" src="{{ rec.icon.path }}" alt="">
+												</span>
+                                        </div>
+                                        <h2 class="m-pricing-table-2__subtitle">
+                                            {{ rec.name }}
+                                        </h2>
+                                        <div class="m-pricing-table-2__features">
+                                            {% for inc in rec.included %}
+                                                <span>
+													{{ inc.included_name }}
+												</span>
+                                            {% endfor %}
+
+
+                                        </div>
+
+
+                                    </div>
+                                {% endfor %}
+
+
+                                <div class="row w-100 ml-0">
+                                    {% for rec in plan.records %}
+
+                                        <div class="m-pricing-table-2__item col-lg-4">
+
+                                             <span class="m-pricing-table-2__price price">
+
+                                                 {{ rec.subscriber[0]['subscriber_mprice'] }}
+
+											</span>
+                                            <span class="m-pricing-table-2__label">
+												$
+											</span>
+
+                                            <select class="form-control m-input m-input--air m-input--pill sub_count">
+                                                {% for sub in rec.subscriber %}
+                                                    <option data-price="{{ sub.subscriber_mprice }}"
+                                                            data-plan="{{ rec.id }}" data-period="month"
+                                                            value="subscriber[{{ loop.index }}]['subscriber_mprice']">
+                                                        {{ sub.subscriber_count }}
+                                                    </option>
+                                                {% endfor %}
+
+
+                                            </select>
+                                            <div class="m-pricing-table-2__btn">
+                                                <button type="button"
+                                                        class="purchBtn btn m-btn--pill  btn-info m-btn--wide m-btn--uppercase m-btn--bolder m-btn--lg">
+                                                    Purchase
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane" id="m-pricing-table_content2" aria-expanded="false">
+                    <div class="m-pricing-table-2__content">
+                        <div class="m-pricing-table-2__container">
+                            <div class="m-pricing-table-2__items row">
+                                {% for rec in plan.records %}
+                                    <div class="m-pricing-table-2__item col-lg-4">
+                                        <div class="m-pricing-table-2__visual">
+                                            <div class="m-pricing-table-2__hexagon"></div>
+                                            <span class="m-pricing-table-2__icon m--font-info">
+													<img style="height: 90px;" class="img-fluid" src="{{ rec.icon.path }}" alt="">
+												</span>
+                                        </div>
+                                        <h2 class="m-pricing-table-2__subtitle">
+                                            {{ rec.name }}
+                                        </h2>
+                                        <div class="m-pricing-table-2__features">
+                                            {% for inc in rec.included %}
+                                                <span>
+													{{ inc.included_name }}
+												</span>
+                                            {% endfor %}
+
+
+                                        </div>
+
+
+                                    </div>
+                                {% endfor %}
+
+
+                                <div class="row w-100 ml-0">
+                                    {% for rec in plan.records %}
+
+                                        <div class="m-pricing-table-2__item col-lg-4">
+
+                                             <span class="m-pricing-table-2__price price">
+
+                                                 {{ rec.subscriber[0]['subscriber_yprice'] }}
+
+											</span>
+                                            <span class="m-pricing-table-2__label">
+												$
+											</span>
+
+                                            <select class="form-control m-input m-input--air m-input--pill sub_count">
+                                                {% for sub in rec.subscriber %}
+                                                    <option data-price="{{ sub.subscriber_yprice }}"
+                                                            data-plan="{{ rec.id }}" data-period="year"
+                                                            value="subscriber[{{ loop.index }}]['subscriber_yprice']">
+                                                        {{ sub.subscriber_count }}
+                                                    </option>
+                                                {% endfor %}
+
+
+                                            </select>
+                                            <div class="m-pricing-table-2__btn">
+                                                <button type="button"
+                                                        class="purchBtn btn m-btn--pill  btn-info m-btn--wide m-btn--uppercase m-btn--bolder m-btn--lg">
+                                                    Purchase
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+            var plan, value;
+            $(document).on('change', '.sub_count', function () {
+                var a = $(this).find(':selected').data('price');
+                var b = $(this).closest('.m-pricing-table-2__item').find(".price").text(a);
+                plan = $(this).find(':selected').data('plan');
+                value = $(this).find(':selected').val();
+            });
+
+
+            $(document).on('click', '.purchBtn', function () {
+                var price = $(this).closest('.m-pricing-table-2__item').find("select").find(':selected').data('price');
+                var value = $(this).closest('.m-pricing-table-2__item').find("select").find(':selected').val();
+                var plan = $(this).closest('.m-pricing-table-2__item').find("select").find(':selected').data('plan');
+                var period = $(this).closest('.m-pricing-table-2__item').find("select").find(':selected').data('period');
+                console.log(plan + "/" + value + "/" + price + "/" + period);
+                $.oc.stripeLoadIndicator.show();
+
+                $.request('onSessionPurch', {
+                    data: {price: price, value: value, plan: plan, period: period},
+                    complete: function () {
+                        window.location.href = "{{ 'payment'|page }}";
+                    }
+
+
+                });
+            });
+        });
+
+    </script>
+
+
+
+
+{% endput %}
+
+{% put styles %}
+
+    <style>
+        .m-pricing-table-2 .m-pricing-table-2__head{
+            padding-top: 0;
+            padding-bottom: 16.5rem;
+        }
+        .m-pricing-table-2 .m-pricing-table-2__head .btn-group{
+            margin-top: 10px;
+            z-index: 98;
+        }
+        .m-pricing-table-2 .m-pricing-table-2__content .m-pricing-table-2__container{
+            margin-top: -20.64rem;
+        }
+        .m-pricing-table-2 .m-pricing-table-2__content .m-pricing-table-2__container .m-pricing-table-2__items .m-pricing-table-2__item .m-pricing-table-2__visual .m-pricing-table-2__hexagon:after{
+            content: none;
+        }
+
+        .m-pricing-table-2 .m-pricing-table-2__content .m-pricing-table-2__container .m-pricing-table-2__items .m-pricing-table-2__item .m-pricing-table-2__visual .m-pricing-table-2__hexagon:before {
+            content: none;
+        }
+        .m-pricing-table-2 .m-pricing-table-2__content .m-pricing-table-2__container .m-pricing-table-2__items .m-pricing-table-2__item .m-pricing-table-2__subtitle{
+            margin-top: 12rem;
+        }
+    </style>
+
+{% endput %}

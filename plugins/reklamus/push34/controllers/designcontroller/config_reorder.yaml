@@ -1,0 +1,4 @@
+title: DesignController
+modelClass: Reklamus\Push34\Models\Design
+toolbar:
+    buttons: reorder_toolbar

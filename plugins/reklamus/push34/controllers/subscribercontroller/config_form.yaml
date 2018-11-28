@@ -1,0 +1,10 @@
+name: SubscriberController
+form: $/reklamus/push34/models/subscriber/fields.yaml
+modelClass: Reklamus\Push34\Models\Subscriber
+defaultRedirect: reklamus/push34/subscribercontroller
+create:
+    redirect: 'reklamus/push34/subscribercontroller/update/:id'
+    redirectClose: reklamus/push34/subscribercontroller
+update:
+    redirect: reklamus/push34/subscribercontroller
+    redirectClose: reklamus/push34/subscribercontroller

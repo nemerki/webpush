@@ -1,0 +1,12 @@
+list: $/reklamus/push34/models/registrant/columns.yaml
+modelClass: Reklamus\Push34\Models\Registrant
+title: RegistrantController
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'reklamus/push34/registrantcontroller/update/:id'

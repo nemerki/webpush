@@ -1,0 +1,10 @@
+name: PlanController
+form: $/reklamus/push34/models/plan/fields.yaml
+modelClass: Reklamus\Push34\Models\Plan
+defaultRedirect: reklamus/push34/plancontroller
+create:
+    redirect: 'reklamus/push34/plancontroller/update/:id'
+    redirectClose: reklamus/push34/plancontroller
+update:
+    redirect: reklamus/push34/plancontroller
+    redirectClose: reklamus/push34/plancontroller

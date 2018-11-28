@@ -1,0 +1,10 @@
+name: DesignController
+form: $/reklamus/push34/models/design/fields.yaml
+modelClass: Reklamus\Push34\Models\Design
+defaultRedirect: reklamus/push34/designcontroller
+create:
+    redirect: 'reklamus/push34/designcontroller/update/:id'
+    redirectClose: reklamus/push34/designcontroller
+update:
+    redirect: reklamus/push34/designcontroller
+    redirectClose: reklamus/push34/designcontroller

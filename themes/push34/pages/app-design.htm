@@ -1,0 +1,166 @@
+title = "App design"
+url = "/app-design"
+layout = "default"
+is_hidden = 0
+
+[Design]
+==
+<div class="row " style="margin-top: 40px;">
+    <div class="col-md-12 ">
+        <div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-tools">
+
+                    <ul class="nav nav-tabs m-tabs m-tabs-line w-100  m-tabs-line--left m-tabs-line--primary"
+                        role="tablist">
+                        <li class="nav-item m-tabs__item">
+                            <a class="nav-link m-tabs__link  active" data-toggle="tab" href="#m_user_profile_tab_1"
+                               role="tab">
+                                <i class="flaticon-share m--hide"></i>
+                                {{ 'Bildirim'|_ }}
+                            </a>
+                        </li>
+                        <li class="nav-item m-tabs__item">
+                            <a class="nav-link m-tabs__link " data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
+                                Sayfa
+                            </a>
+                        </li>
+                      {#  <li class="nav-item m-tabs__item d-flex align-items-center ml-auto">
+
+
+                            <select class="form-control m-input m-input--air" id="app_select">
+                                {% for rec in apps %}
+                                    <option value="{{ rec.id }}">
+                                        {{ rec.subdomain_name }}
+                                    </option>
+                                {% endfor %}
+
+
+                            </select>
+                        </li>#}
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+            <div id="app_content" class="tab-content">
+                {% partial "design"  partialsRecords = design %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% put scripts %}
+
+    <script>
+
+        $(document).ready(function () {
+            $('#pop_title').keyup(function () {
+                var pop_title = this.value;
+                $(".pop_title").text(pop_title);
+            });
+            $('#pop_text').keyup(function () {
+                var pop_text = this.value;
+                $(".pop_text").text(pop_text);
+            });
+            $('#allow_btn').keyup(function () {
+                var allow_btn = this.value;
+                $(".allow_btn").text(allow_btn);
+            });
+            $('#dis_allow_btn').keyup(function () {
+                var dis_allow_btn = this.value;
+                $(".dis_allow_btn").text(dis_allow_btn);
+            });
+            $('#window_text').keyup(function () {
+                var window_text = this.value;
+                $(".window_text").text(window_text);
+            });
+
+            $("#pop_position").change(function () {
+                var val = this.value;
+                if (val == 1) {
+                    $(".notification").css({
+                        "top": "0",
+                        "bottom": "auto",
+                        "left": "0",
+                        "transform": "translateX(0)",
+                    })
+                }
+                else if (val == 2) {
+                    $(".notification").css({
+                        "top": "0",
+                        "bottom": "auto",
+                        "left": "50%",
+                        "transform": "translateX(-50%)",
+                    })
+                }
+                else if (val == 3) {
+                    $(".notification").css({
+                        "top": "0",
+                        "bottom": "auto",
+                        "left": "auto",
+                        "right": "0",
+                        "transform": "translateX(0)",
+                    })
+                }
+                else if (val == 4) {
+                    $(".notification").css({
+                        "left": "0",
+                        "top": "auto",
+                        "bottom": "0",
+                        "transform": "translateX(0)",
+                    })
+                }
+                else if (val == 5) {
+                    $(".notification").css({
+                        "left": "50%",
+                        "top": "auto",
+                        "bottom": "0",
+                        "transform": "translateX(-50%)",
+                    })
+                }
+                else if (val == 6) {
+                    $(".notification").css({
+                        "left": "auto",
+                        "right": "0",
+                        "top": "auto",
+                        "bottom": "0",
+                        "transform": "translateX(0)",
+                    })
+                }
+            });
+
+        });
+
+
+        $(document).ready(function () {
+            /* Yüklenen resmi anlık olarak görmek için */
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        imgId = '.preview';
+                        $(imgId).attr('src', e.target.result).css("width", "100%");
+                        $('.browserPrew__img').attr('src', e.target.result).css("width", "100%");
+                        $('.pageNotifyImg__img').attr('src', e.target.result).css("max-height", "100px");
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+
+            $("input[type='file']").change(function () {
+                readURL(this);
+            });
+            /* /Yüklenen resmi anlık olarak görmek için */
+        });
+
+    </script>
+
+{% endput %}

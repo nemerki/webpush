@@ -1,0 +1,325 @@
+<div class="bildirim tab-pane active " id="m_user_profile_tab_1">
+
+
+    <div class="notification">
+        <div class="notification__imgContain">
+            <img id="preview"
+                 src="{{ partialsRecords.pop_img }}"
+                 alt=""
+                 class="browserPrew__img notification__img img-fluid">
+        </div>
+        <div class="notification__content">
+            <p class="notification__title pop_title">{{ partialsRecords.pop_title }}</p>
+            <p class="notification__text pop_text ">{{ partialsRecords.pop_text }}</p>
+            <div class="notification__btnContain">
+                <a href=""
+                   class="notification__btn btn btn-outline-danger notification__btnDeny dis_allow_btn">{{ partialsRecords.dis_allow_btn }}</a>
+                <a href=""
+                   class="notification__btn btn btn-success notification__btnAllow allow_btn">{{ partialsRecords.allow_btn }}</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--begin::Portlet-->
+    <div class="m-portlet m-portlet--tab">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+												<span class="m-portlet__head-icon m--hide">
+													<i class="la la-gear"></i>
+												</span>
+                    <h3 class="m-portlet__head-text">
+                        {{ 'Tasarımı Düzenle'|_ }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!--begin::Form-->
+        <form id="notifyForm" class="m-form m-form--fit m-form--label-align-right"
+              data-request="onNotifyDesignSave"
+              data-request-validate
+              data-request-flash
+              data-request-files
+              data-request-redirect="{{ 'profile-my-car-listing'|page }}">
+            <div class=" m-portlet__body">
+                <div class="form-group m-form__group m--margin-top-10">
+                    <div class="alert m-alert m-alert--default" role="alert">
+                        {{ 'Bu alana bilgilendirme amaçlı bişeyler yaza biliriz'|_ }}
+                    </div>
+                </div>
+
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'Süre'|_ }}
+                    </label>
+                    <div class="col-md-9 d-flex align-center">
+                        <label style="padding-top: .65rem; padding-right: 10px;" for="">Site
+                            açıldıktan</label>
+                        <input style="width: 80px;" class="form-control m-input" type="text"
+                               name="delay_sec"
+                               value="{{ partialsRecords.delay_sec }}" id="delay_sec">
+                        <label style="padding-top: .65rem; padding-left: 10px;" for="">saniye sonra
+                            göster</label>
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'Başlık'|_ }}
+                    </label>
+                    <div class="col-md-9">
+                        <input class="form-control m-input" type="text" name="pop_title"
+                               value="{{ partialsRecords.pop_title }}" id="pop_title">
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'Açıklama'|_ }}
+                    </label>
+                    <div class="col-md-9">
+                        <textarea name="pop_text"
+                                  class="form-control m-input m-input--air" id="pop_text"
+                                  rows="3">{{ partialsRecords.pop_text }}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'İzin ver butonu'|_ }}
+                    </label>
+                    <div class="col-md-9">
+                        <input class="form-control m-input" type="text" name="allow_btn"
+                               value="{{ partialsRecords.allow_btn }}" id="allow_btn">
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'Reddet butonu'|_ }}
+                    </label>
+                    <div class="col-md-9">
+                        <input class="form-control m-input" type="text" name="dis_allow_btn"
+                               value="{{ partialsRecords.dis_allow_btn }}" id="dis_allow_btn">
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'Pozisyon'|_ }}
+                    </label>
+                    <div class="col-md-9">
+                        <select name="pop_position" class="form-control m-input m-input--air"
+                                id="pop_position">
+                            <option {% if partialsRecords.pop_position==1 %}  selected {% endif %} value="1">
+                                Üst sol
+                            </option>
+                            <option {% if partialsRecords.pop_position==2 %}  selected {% endif %} value="2">
+                                Üst Orta
+                            </option>
+                            <option {% if partialsRecords.pop_position==3 %}  selected {% endif %} value="3">
+                                Üst Sağ
+                            </option>
+                            <option {% if partialsRecords.pop_position==4 %}  selected {% endif %} value="4">
+                                Alt sol
+                            </option>
+                            <option {% if partialsRecords.pop_position==5 %}  selected {% endif %} value="5">
+                                Alt Orta
+                            </option>
+                            <option {% if partialsRecords.pop_position==6 %}  selected {% endif %} value="6">
+                                Alt Sağ
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-md-3 col-form-label">
+                        {{ 'Image'|_ }}
+                    </label>
+                    <div class="col-md-4">
+                        <div style=" height: 100px ;">
+                            <img style="max-height: 100%" src="{{ partialsRecords.pop_img }}" class="preview img-fluid"
+                                 alt="">
+                        </div>
+                    </div>
+                    <div class="custom-file col-md-5">
+                        <input type="file" name="pop_img" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label selected" for="customFile"></label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="m-portlet__foot m-portlet__foot--fit">
+                <div class="m-form__actions">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <button type="submit" id="notifySaveBtn" class="btn btn-success">
+                                {{ 'Kaydet'|_ }}
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="app_id" value="{{ partialsRecords.app.id }}">
+        </form>
+    </div>
+</div>
+
+
+<div class="tab-pane  " id="m_user_profile_tab_2">
+    <!--begin::Portlet-->
+    <div class="m-portlet m-portlet--tab">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+												<span class="m-portlet__head-icon m--hide">
+													<i class="la la-gear"></i>
+												</span>
+                    <h3 class="m-portlet__head-text">
+                        {{ 'Tasarımı Düzenle'|_ }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--begin::Form-->
+            <form id="notifyForm" class="m-form m-form--fit m-form--label-align-right col-md-5"
+                  data-request="onWindowSave"
+                  data-request-validate
+                  data-request-flash
+                  data-request-files
+            >
+                <input type="hidden" name="app_id" value="{{ partialsRecords.app.id }}">
+                <div class=" m-portlet__body">
+                    <div class="form-group m-form__group m--margin-top-10">
+                        <div class="alert m-alert m-alert--default" role="alert">
+                            {{ 'Bu alana bilgilendirme amaçlı bişeyler yaza biliriz'|_ }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-md-3 col-form-label">
+                            {{ 'Açıklama'|_ }}
+                        </label>
+                        <div class="col-md-9">
+                        <textarea name="window_text"
+                                  class="form-control m-input m-input--air" id="window_text"
+                                  rows="3">{{ partialsRecords.window_text }}
+                        </textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-md-3 col-form-label">
+                            {{ 'Image'|_ }}
+                        </label>
+                        <div class="col-md-9">
+                            <div >
+                                <img style="max-height: 150px"  src="{{ partialsRecords.window_img }}" class="preview img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="custom-file col-md-9 offset-3 mt-2">
+                            <input type="file" name="window_img" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label selected" for="customFile"></label>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="m-portlet__foot m-portlet__foot--fit">
+                    <div class="m-form__actions">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <button type="submit" id="notifySaveBtn" class="btn btn-success">
+                                    Submit
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <div class="col-md-7">
+                <div class="pageNotifyImg">
+                    <img src="{{ 'assets/popwindow.jpg'|theme }}" class="img-fluid" alt="">
+                    <img style="max-height: 100px" src="{{ partialsRecords.window_img }}"
+                         alt="" class="pageNotifyImg__img img-fluid">
+                    <p class="pageNotify__text window_text">{{ partialsRecords.window_text }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+            var val = {{ partialsRecords.pop_position }};
+            if (val == 1) {
+                $(".notification").css({
+                    "top": "0",
+                    "bottom": "auto",
+                    "left": "0",
+                    "transform": "translateX(0)",
+                })
+            }
+            else if (val == 2) {
+                $(".notification").css({
+                    "top": "0",
+                    "bottom": "auto",
+                    "left": "50%",
+                    "transform": "translateX(-50%)",
+                })
+            }
+            else if (val == 3) {
+                $(".notification").css({
+                    "top": "0",
+                    "bottom": "auto",
+                    "left": "auto",
+                    "right": "0",
+                    "transform": "translateX(0)",
+                })
+            }
+            else if (val == 4) {
+                $(".notification").css({
+                    "left": "0",
+                    "top": "auto",
+                    "bottom": "0",
+                    "transform": "translateX(0)",
+                })
+            }
+            else if (val == 5) {
+                $(".notification").css({
+                    "left": "50%",
+                    "top": "auto",
+                    "bottom": "0",
+                    "transform": "translateX(-50%)",
+                })
+            }
+            else if (val == 6) {
+                $(".notification").css({
+                    "left": "auto",
+                    "right": "0",
+                    "top": "auto",
+                    "bottom": "0",
+                    "transform": "translateX(0)",
+                })
+            }
+        });
+
+    </script>
+
+{% endput %}

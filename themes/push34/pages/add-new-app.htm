@@ -1,0 +1,168 @@
+title = "Add new app"
+url = "/new-app"
+layout = "default"
+is_hidden = 0
+
+[AddNewApp]
+==
+<div class="row ">
+    <div class="col-md-12 ">
+
+        <!--begin::Portlet-->
+        <div class="m-portlet m-portlet--tab">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+												<span class="m-portlet__head-icon m--hide">
+													<i class="la la-gear"></i>
+												</span>
+                        <h3 class="m-portlet__head-text">
+                            {{ 'Create new app'|_ }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <!--begin::Form-->
+            <form id="notifyForm" class="m-form m-form--fit m-form--label-align-right"
+                  data-request="onNotifySave"
+                  data-request-validate
+                  data-request-flash
+                  data-request-files
+                  data-request-redirect="{{ 'profile-my-car-listing'|page }}">
+                <input name="app_id" type="hidden" value="{{ app_id }}">
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group m--margin-top-10">
+                        <div class="alert m-alert m-alert--default" role="alert">
+                            {{ 'Bu alana bilgilendirme amaçlı bişeyler yaza biliriz'|_ }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">
+                            {{ 'App Name'|_ }}
+                        </label>
+                        <div class="col-md-10">
+                            <div class="row">
+
+                                <input class=" form-control m-input" type="text" id="app_name"
+                                       placeholder="{{ 'New App'|_ }}"
+                                       name="site_url">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">
+                            {{ 'Website'|_ }}
+                        </label>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <select name="full_ssl" id="full_ssl" class="form-control m-input col-5"
+                                        style="height: 46px;">
+                                    <option value="0">http://</option>
+                                    <option value="1">https://</option>
+                                </select>
+                                <input class=" col-7 form-control m-input" type="text" id="site_url"
+                                       placeholder="www.example.com"
+                                       name="site_url">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">
+                            {{ 'Subdomain'|_ }}
+                        </label>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="input-group  ">
+                                    <input type="text" class="form-control m-input" name="subdomain_name"
+                                           placeholder="example" id="subdomain_name"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+														<span class="input-group-text" id="basic-addon2">
+															push34.com
+														</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="m-portlet__foot m-portlet__foot--fit">
+                    <div class="m-form__actions">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <button type="submit" id="notifySaveBtn" class="btn btn-success">
+                                    Submit
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
+{% put scripts %}
+    <script src="{{ 'assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js'|theme }}"
+            type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#chrome_ntitle').keyup(function () {
+                var ntitle = this.value;
+                console.log(ntitle);
+                $(".browserPrew__title").text(ntitle);
+            });
+            $('#chrome_ncontent').keyup(function () {
+                var ntitle = this.value;
+                console.log(ntitle);
+                $(".browserPrew__msg").text(ntitle);
+            });
+        });
+
+
+        /* Yüklenen resmi anlık olarak görmek için */
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imgId = '#preview';
+                    $(imgId).attr('src', e.target.result).css("width", "100%");
+                    $('.browserPrew__img').attr('src', e.target.result).css("width", "100%");
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        $("input[type='file']").change(function () {
+            readURL(this);
+        });
+        /* /Yüklenen resmi anlık olarak görmek için */
+    </script>
+
+
+    <script>
+        // $(document).ready(function () {
+        //     $(document).on('click', '#notifySaveBtn', function () {
+        //         $.oc.stripeLoadIndicator.show()
+        //         $('#notifyForm').request('onSave', {
+        //
+        //             complete: function () {
+        //                 $.oc.stripeLoadIndicator.hide()
+        //             }
+        //         });
+        //     });
+        // });
+    </script>
+{% endput %}

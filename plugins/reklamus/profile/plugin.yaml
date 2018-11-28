@@ -1,0 +1,6 @@
+plugin:
+    name: 'reklamus.profile::lang.plugin.name'
+    description: 'reklamus.profile::lang.plugin.description'
+    author: Reklamus
+    icon: oc-icon-user
+    homepage: ''

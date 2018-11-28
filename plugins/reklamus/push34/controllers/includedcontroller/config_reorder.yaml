@@ -1,0 +1,4 @@
+title: IncludedController
+modelClass: Reklamus\Push34\Models\Included
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,10 @@
+name: NotificationController
+form: $/reklamus/push34/models/notification/fields.yaml
+modelClass: Reklamus\Push34\Models\Notification
+defaultRedirect: reklamus/push34/notificationcontroller
+create:
+    redirect: 'reklamus/push34/notificationcontroller/update/:id'
+    redirectClose: reklamus/push34/notificationcontroller
+update:
+    redirect: reklamus/push34/notificationcontroller
+    redirectClose: reklamus/push34/notificationcontroller

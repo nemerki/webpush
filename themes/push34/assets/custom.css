@@ -1,0 +1,83 @@
+.browserPrew {
+
+}
+
+.browserPrew__body {
+    border: 1px solid #000;
+    display: flex;
+    margin-right: 20px;
+}
+
+.browserPrew__imgContain {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #000;
+    margin: 5px;
+}
+
+.browserPrew__content {
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+.browserPrew__content p {
+    margin-bottom: 5px !important;
+    font-size: 12px;
+}
+
+.notification {
+    width: 400px;
+    height: 150px;
+    box-shadow: 0 0 20px 3px rgba(0, 0, 0, .22) !important;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 10000;
+    background-color: #fff;
+    padding: 5px 10px;
+    display: none;
+
+}
+
+.bildirim.active .notification {
+    display: flex !important;
+}
+
+.notification__imgContain {
+    width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+}
+
+.pageNotifyImg {
+    position: relative;
+}
+
+.pageNotifyImg__img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    max-width: 200px;
+    min-height: 100px;
+}
+
+.pageNotify__text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-65%);
+    bottom: 10%;
+}
+
+.sub_count {
+    padding-left: 50%;
+}
+
+.ss span, td[data-field="SS"] span {
+    width: 30px !important;
+}
+
+.nurl span, td[data-field="Url"] span {
+    width: 200px !important;
+}

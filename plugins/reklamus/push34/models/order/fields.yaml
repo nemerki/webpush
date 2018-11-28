@@ -1,0 +1,6 @@
+fields:
+    amount:
+        label: Amount
+        span: auto
+        disabled: 1
+        type: text

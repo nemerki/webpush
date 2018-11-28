@@ -1,0 +1,4 @@
+columns:
+    id:
+        label: ıd
+        type: text

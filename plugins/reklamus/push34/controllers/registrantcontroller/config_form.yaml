@@ -1,0 +1,10 @@
+name: RegistrantController
+form: $/reklamus/push34/models/registrant/fields.yaml
+modelClass: Reklamus\Push34\Models\Registrant
+defaultRedirect: reklamus/push34/registrantcontroller
+create:
+    redirect: 'reklamus/push34/registrantcontroller/update/:id'
+    redirectClose: reklamus/push34/registrantcontroller
+update:
+    redirect: reklamus/push34/registrantcontroller
+    redirectClose: reklamus/push34/registrantcontroller

@@ -1,0 +1,4 @@
+title: SubscriberController
+modelClass: Reklamus\Push34\Models\Subscriber
+toolbar:
+    buttons: reorder_toolbar
