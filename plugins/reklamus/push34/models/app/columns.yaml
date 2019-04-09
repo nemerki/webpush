@@ -1,4 +1,6 @@
 columns:
-    id:
-        label: Id
+    site_url:
+        label: Name
         type: text
+        searchable: true
+        sortable: true

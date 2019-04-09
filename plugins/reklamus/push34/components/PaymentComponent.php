@@ -78,13 +78,15 @@ class PaymentComponent extends ComponentBase
             'amount' => $amount,
         ]);
 
-        Action::create([
-            'user_id' => $user_id,
-            'plan_id' => $plan_id,
-            'day' => $day,
-            'end_date' => $end_date,
+        Action::updateOrCreate(
+            ['user_id' => $user_id],
+            [
+                'plan_id' => $plan_id,
+                'day' => $day,
+                'end_date' => $end_date,
+                'status'=>1,
 
-        ]);
+            ]);
 
 //        }
     }

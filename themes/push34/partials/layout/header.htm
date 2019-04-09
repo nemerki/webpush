@@ -4,8 +4,8 @@
         <div class="m-stack__item m-brand  m-brand--skin-dark ">
             <div class="m-stack m-stack--ver m-stack--general">
                 <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                    <a href="index.html" class="m-brand__logo-wrapper">
-                        <img class="img-fluid" alt="" src="{{ 'assets/reklam-us.png'|theme }}"/>
+                    <a href="{{ 'dashbord'|page }}" class="m-brand__logo-wrapper">
+                        <img class="img-fluid" alt="" src="{{ 'assets/logo.png'|theme }}"/>
                     </a>
                 </div>
                 <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -60,9 +60,9 @@
                     </li>
 
                     <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
-                        Your free plan allows for 1,999 more subscribers  <a href="{{ 'upgrade'|page }}" class="btn btn-success">
+                        Ücretsiz plan için {{ registrant_remain }} abone kaldı   <a href="{{ 'upgrade'|page }}" class="btn btn-success">
                             <span class="m-menu__link-text">
-												Upgrade Now
+												{{ 'Şimdi Yükselt'|_ }}
 											</span>
                         </a>
                     </li>
@@ -81,7 +81,7 @@
 													<i class="flaticon-music-2"></i>
 												</span>
                             </a>
-                            <div class="m-dropdown__wrapper">
+                         {#   <div class="m-dropdown__wrapper">
                                 <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                 <div class="m-dropdown__inner">
                                     <div class="m-dropdown__header m--align-center"
@@ -290,13 +290,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>#}
                         </li>
                         <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
                             m-dropdown-toggle="click">
                             <a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-topbar__userpic">
-													<img src="{{ 'assets/app/media/img/users/user4.jpg'|theme }}"
+													<img src="{{  user.avatar| resize(40, 40, { mode: 'crop', quality: '80', extension: 'png' })  }}"
                                                          class="m--img-rounded m--marginless m--img-centered" alt=""/>
 												</span>
                                 <span class="m-topbar__username m--hide">
@@ -310,7 +310,7 @@
                                          style="background: url({{ 'assets/app/media/img/misc/user_profile_bg.jpg'|theme }}); background-size: cover;">
                                         <div class="m-card-user m-card-user--skin-dark">
                                             <div class="m-card-user__pic">
-                                                <img src="{{ 'assets/app/media/img/users/user4.jpg'|theme }}"
+                                                <img src="{{  user.avatar| resize(70, 70, { mode: 'crop', quality: '80', extension: 'png' })  }}"
                                                      class="m--img-rounded m--marginless" alt=""/>
                                             </div>
                                             <div class="m-card-user__details">
@@ -337,7 +337,7 @@
                                                         <span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">
 																				<span class="m-nav__link-text">
-																					My Profile
+																					{{ 'Profilim'|_ }}
 																				</span>
 
 																			</span>
@@ -349,7 +349,7 @@
                                                 <li class="m-nav__item">
                                                     <a data-request="onLogout" data-request-data="redirect: '/'"
                                                        class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
-                                                        Logout
+                                                        {{ 'Çıkış'|_ }}
                                                     </a>
 
 

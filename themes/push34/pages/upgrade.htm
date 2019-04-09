@@ -28,11 +28,11 @@ whereIsActive = 1
                 <div class="btn-group nav m-btn-group m-btn-group--pill m-btn-group--air" role="group">
                     <button type="button" class="btn m-btn--pill  active m-btn--wide m-btn--uppercase m-btn--bolder"
                             data-toggle="tab" href="#m-pricing-table_content1" role="tab" aria-expanded="true">
-                       Aylık Plans
+                       {{ 'AYLIK'|_ }}
                     </button>
                     <button type="button" class="btn m-btn--pill  m-btn--wide m-btn--uppercase m-btn--bolder"
                             data-toggle="tab" href="#m-pricing-table_content2" role="tab" aria-expanded="false">
-                        Yıllık Plans
+                        {{ 'YILLIK'|_ }}
                     </button>
                 </div>
             </div>
@@ -78,7 +78,7 @@ whereIsActive = 1
 
 											</span>
                                             <span class="m-pricing-table-2__label">
-												$
+												<img src="http://push34.local/themes/push34/assets/front/images/pushtl.png">
 											</span>
 
                                             <select class="form-control m-input m-input--air m-input--pill sub_count">
@@ -95,7 +95,7 @@ whereIsActive = 1
                                             <div class="m-pricing-table-2__btn">
                                                 <button type="button"
                                                         class="purchBtn btn m-btn--pill  btn-info m-btn--wide m-btn--uppercase m-btn--bolder m-btn--lg">
-                                                    Purchase
+                                                    {{ 'Satın al'|_ }}
                                                 </button>
                                             </div>
                                         </div>
@@ -150,7 +150,8 @@ whereIsActive = 1
 
 											</span>
                                             <span class="m-pricing-table-2__label">
-												$
+												<img src="http://push34.local/themes/push34/assets/front/images/pushtl.png">
+
 											</span>
 
                                             <select class="form-control m-input m-input--air m-input--pill sub_count">

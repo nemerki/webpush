@@ -113,7 +113,7 @@ is_hidden = 0
                 <div class="m-portlet__head-caption">
                     <div class="m-portlet__head-title">
                         <h3 class="m-portlet__head-text">
-                            Recent Notifications
+                            Son Bildirimler
                         </h3>
                     </div>
                 </div>
@@ -126,11 +126,11 @@ is_hidden = 0
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>TITLE</th>
-                                <th>DELIVERED</th>
-                                <th>CLICKS</th>
-                                <th>CLICK RATE</th>
-                                <th>SEND DATE</th>
+                                <th>Başlık</th>
+                                <th>Durum</th>
+                                <th>Tıklama</th>
+                                <th>Tıklama skoru</th>
+                                <th>Gönderilme Tarihi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -188,10 +188,10 @@ is_hidden = 0
             ]);
 
             var browser_options = {
-                title: 'Browser  Distribution'
+                title: 'Tarayıcı'
             };
             var device_options = {
-                title: 'Device Distribution'
+                title: 'Cihaz'
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('browser'));

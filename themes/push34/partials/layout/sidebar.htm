@@ -16,7 +16,7 @@
                     <span class="m-menu__link-title">
 										<span class="m-menu__link-wrap">
 											<span class="m-menu__link-text">
-												{{ 'Dashboard'|_ }}
+												{{ 'Panel'|_ }}
 											</span>
 
 										</span>
@@ -25,11 +25,22 @@
             </li>
             <li class="m-menu__section">
                 <h4 class="m-menu__section-text">
-                    Components
+                    {{ 'MENU'|_ }}
                 </h4>
                 <i class="m-menu__section-icon flaticon-more-v3"></i>
             </li>
+
+            {% if isAddApp(user.id,user.apps.count) %}
             <li class="m-menu__item  m-menu__item--submenu  {{ this.page.id=='send-push' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" m-menu-submenu-toggle="hover">
+                <a href="{{ 'add-new-app'|page }}" class="m-menu__link m-menu__toggle">
+                    <i class="m-menu__link-icon flaticon-paper-plane"></i>
+                    <span class="m-menu__link-text">
+										{{ 'Yeni Site Ekle '|_ }}
+									</span>
+                </a>
+            </li>
+            {% endif %}
+             <li class="m-menu__item  m-menu__item--submenu  {{ this.page.id=='send-push' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" m-menu-submenu-toggle="hover">
                 <a href="{{ 'send-push'|page }}" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-paper-plane"></i>
                     <span class="m-menu__link-text">
@@ -57,7 +68,7 @@
                 <a href="{{ 'rapor'|page }}" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-alert-1"></i>
                     <span class="m-menu__link-text">
-										{{ 'Rapor'|_ }}
+										{{ 'Raporlar'|_ }}
 									</span>
                 </a>
             </li>

@@ -1,4 +1,11 @@
 columns:
-    id:
-        label: Id
+    app:
+        label: App
         type: text
+        select: subdomain_name
+        relation: app
+    ntitle:
+        label: Title
+        type: text
+        searchable: true
+        sortable: true

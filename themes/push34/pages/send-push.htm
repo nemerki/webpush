@@ -28,7 +28,7 @@ is_hidden = 0
                   data-request-validate
                   data-request-flash
                   data-request-files
-                  data-request-redirect="{{ 'profile-my-car-listing'|page }}">
+                  data-request-redirect="{{ 'all-notification'|page }}">
                 <input name="app_id" type="hidden" value="{{ app_id }}">
                 <div class="m-portlet__body">
                     <div class="form-group m-form__group m--margin-top-10">
@@ -36,7 +36,6 @@ is_hidden = 0
                             {{ 'Bu alana bilgilendirme amaçlı bişeyler yaza biliriz'|_ }}
                         </div>
                     </div>
-
 
 
                     <div class="form-group m-form__group row">
@@ -64,7 +63,7 @@ is_hidden = 0
                         </label>
                         <div class="col-md-10">
                             <input class="form-control m-input" type="text" name="nurl"
-                                   placeholder="{{ 'http:// veya https://'|_ }}" id="example-text-input">
+                                   placeholder="{{ 'http:// veya https://'|_ }}" id="nurl">
                         </div>
                     </div>
 
@@ -75,29 +74,39 @@ is_hidden = 0
 
 
                         <div class="input-group date col-md-10">
-                            <input type="text" name="push_date" class="form-control m-input" placeholder="Top left"
-                                   id="m_datetimepicker_4_4">
+                            <input type="text" name="push_date" class="push_date" id="datetimepicker">
                             <div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-check-circle-o glyphicon-th"></i>
 													</span>
                             </div>
+                            {% if user.action is null %}
+                                <a class="tes" href="{{ 'upgrade'|page }}">
+                                     Şimdi Yükselt
+                                </a>
+                            {% endif %}
                         </div>
 
 
                     </div>
+
+
                     <div class="form-group m-form__group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">
                             {{ 'Image'|_ }}
                         </label>
                         <div class="col-md-5">
-                            <div style="width: 100px; height: 100px;">
-                                <img src="{{ 'assets/img.png'|theme }}" id="preview" alt="">
+                            <div style="  height: 100px;">
+                                <img style="height: 100px; width: auto;" src="{{ 'assets/img.png'|theme }}" id="preview"
+                                     alt="">
                             </div>
+                            
                         </div>
                         <div class="custom-file col-md-5">
+                            <label style="color: transparent; border: none;" class="custom-file-label selected"
+                                   for="customFile"></label>
+
                             <input type="file" name="image" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label selected" for="customFile"></label>
                         </div>
 
                     </div>
@@ -130,10 +139,99 @@ is_hidden = 0
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-10">
-                                <button type="submit" id="notifySaveBtn" class="btn btn-success">
-                                    Submit
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#m_modal_4">
+                                    Kaydet/Gönder
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Modal -->
+                <div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    New message
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">
+								&times;
+							</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="browserPrew">
+                                            <div class="browserPrew__chrome mb-5">
+                                                <div class="browserPrew__name">
+                                                    <i class="fa fa-chrome"
+                                                       aria-hidden="true"></i>{{ ' Masaüstü Chrome'|_ }}
+                                                </div>
+                                                <div class="browserPrew__body">
+                                                    <div class="browserPrew__imgContain">
+                                                        <img style="height: 100%;" src="" alt=""
+                                                             class="browserPrew__img">
+                                                    </div>
+                                                    <div class="browserPrew__content">
+                                                        <p class="browserPrew__title">
+                                                            Bildirim Başlığı</p>
+                                                        <p class="browserPrew__msg">Bildirim Mesajı</p>
+                                                        <p class="browserPrew__link">domain.push34.com</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="browserPrew__firefox">
+                                                <div class="browserPrew__name">
+                                                    <i class="fa fa-firefox"
+                                                       aria-hidden="true"></i>{{ 'Masaüstü Firefox'|_ }}
+                                                </div>
+                                                <div class="browserPrew__body">
+                                                    <div class="browserPrew__flogo"
+                                                         style="display: flex; align-items: center">
+                                                        <img style="height: 45px; width: 45px; margin-left: 5px;"
+                                                             src="{{ 'assets/firefox-logo.png'|theme }}" alt=""
+                                                             class="browserPrew__flogoImg">
+                                                    </div>
+
+                                                    <div class="browserPrew__content">
+                                                        <p class="browserPrew__title">
+                                                            Bildirim Başlığı</p>
+                                                        <p class="browserPrew__link">domain.push34.com</p>
+                                                        <p class="browserPrew__msg">Bildirim Mesajı</p>
+
+                                                    </div>
+                                                    <div class="browserPrew__imgContain ml-auto">
+                                                        <img style="height: 100%;" src="" alt=""
+                                                             class="browserPrew__img">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Bildirim Sayısı</h5>
+                                        <p>{{ registrants }}</p>
+                                        <h5>Bildirim Zamanı</h5>
+                                        <p class="modal__time">Hemen</p>
+                                        <h5>Hedef Url</h5>
+                                        <p class="modal__url"></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Düzenle
+                                </button>
+                                <button type="submit" id="notifySaveBtn" class="btn btn-success">
+                                    Gönder
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -157,7 +255,7 @@ is_hidden = 0
                         <p class="browserPrew__title">
                             Bildirim Başlığı</p>
                         <p class="browserPrew__msg">Bildirim Mesajı</p>
-                        <p class="browserPrew__link">domain.push34.com</p>
+                        <p class="browserPrew__link">{{ app.subdomain_name }}.push34.com</p>
                     </div>
                 </div>
             </div>
@@ -175,7 +273,7 @@ is_hidden = 0
                     <div class="browserPrew__content">
                         <p class="browserPrew__title">
                             Bildirim Başlığı</p>
-                        <p class="browserPrew__link">domain.push34.com</p>
+                        <p class="browserPrew__link">{{ app.subdomain_name }}.push34.com</p>
                         <p class="browserPrew__msg">Bildirim Mesajı</p>
 
                     </div>
@@ -184,12 +282,71 @@ is_hidden = 0
                     </div>
                 </div>
             </div>
+            <div class="browserPrew__macChrome mt-5">
+                <div class="browserPrew__name">
+                    <i class="fa fa-chrome" aria-hidden="true"></i>{{ 'Chrome on Mac'|_ }}
+                </div>
+                <div class="browserPrew__body" style="border-radius: 10px">
+                    <div class="browserPrew__flogo" style="display: flex; align-items: center">
+                        <img style="height: 40px; width: 40px; margin-left: 5px;"
+                             src="{{ 'assets/chrome-logo@2x.ico'|theme }}" alt="" class="browserPrew__flogoImg">
+                    </div>
+
+                    <div class="browserPrew__content">
+                        <p class="browserPrew__title">
+                            Bildirim Başlığı</p>
+                        <p class="browserPrew__link">{{ app.subdomain_name }}.push34.com</p>
+                        <p class="browserPrew__msg">Bildirim Mesajı</p>
+
+                    </div>
+                    <div style="height: 45px; width: 45px;margin: auto" class="browserPrew__imgContain ml-auto">
+                        <img style="height: 100%;" src="" alt="" class="browserPrew__img">
+                    </div>
+                    <div class="browserPrew__right" style="border-left: 1px solid;">
+                        <p class="mb-0" style="    height: 50%;
+    text-align: center;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+padding: 0 20px;">Close</p>
+                        <p class="mb-0" style="    display: flex;
+    align-items: center;
+    height: 50%;
+    justify-content: center;">Settings</p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
+{% put styles %}
+    <link rel="stylesheet" href="{{ 'assets/jquery.datetimepicker.min.css'|theme }}">
+    <style>
+        .custom-file-label::after {
+            left: 0;
+            right: auto;
+            top: 50%;
+            content: "Resim Seç";
+        }
+    </style>
+
+{% endput %}
 {% put scripts %}
-    <script src="{{ 'assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js'|theme }}"
+    <script src="{{ 'assets/jquery.datetimepicker.full.min.js'|theme }}"
             type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            jQuery('#datetimepicker').datetimepicker({
+                format: 'd.m.Y H:i',
+
+            });
+            $.datetimepicker.setLocale('tr');
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('#chrome_ntitle').keyup(function () {
@@ -202,6 +359,14 @@ is_hidden = 0
                 console.log(ntitle);
                 $(".browserPrew__msg").text(ntitle);
             });
+            $('#nurl').keyup(function () {
+                var nurl = this.value;
+                $(".modal__url").text(nurl);
+            });
+            $('.push_date').change(function () {
+                var push_date = this.value;
+                $(".modal__time").text(push_date);
+            });
         });
 
 
@@ -212,7 +377,7 @@ is_hidden = 0
 
                 reader.onload = function (e) {
                     imgId = '#preview';
-                    $(imgId).attr('src', e.target.result).css("width", "100%");
+                    $(imgId).attr('src', e.target.result).css("width", "auto");
                     $('.browserPrew__img').attr('src', e.target.result).css("width", "100%");
                 }
 
@@ -241,4 +406,28 @@ is_hidden = 0
         //     });
         // });
     </script>
+{% endput %}
+
+{% put styles %}
+
+    <style>
+        .tes {
+            position: absolute;
+            width: 90%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: red;
+        }
+
+        .tes:hover{
+            color: red;
+            text-decoration:none;
+
+        }
+    </style>
+
 {% endput %}

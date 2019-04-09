@@ -37,6 +37,9 @@ class User extends UserBase
     public $hasMany = [
         'apps' => ['Reklamus\Push34\Models\App', 'softDelete' => true],
     ];
+    public $hasOne = [
+        'action' => ['Reklamus\Push34\Models\Action', 'softDelete' => true],
+    ];
 
     public $attachOne = [
         'avatar' => \System\Models\File::class

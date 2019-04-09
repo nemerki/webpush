@@ -5,13 +5,13 @@ use BackendMenu;
 
 class AppController extends Controller
 {
-    public $implement = [        'Backend\Behaviors\ListController',        'Backend\Behaviors\FormController'    ];
-    
+    public $implement = ['Backend\Behaviors\ListController', 'Backend\Behaviors\FormController'];
+
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'manage_app' 
+        'manage_app'
     ];
 
     public function __construct()

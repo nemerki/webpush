@@ -12,6 +12,7 @@ class AddNewFields extends Migration
         {
            $table->string('phone')->nullable();
            $table->string('company_name')->nullable();
+           $table->integer('upgrade_status')->nullable();
         });
     }
 

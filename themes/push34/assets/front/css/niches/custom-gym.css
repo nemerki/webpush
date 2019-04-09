@@ -1,0 +1,21 @@
+
+
+.btn-fullcolor:hover, 
+.btn-fullcolor.btn-skewed:hover:before, 
+.cart-container .buttons .button.wc-forward:hover {background-color: #8bb129;}
+
+
+
+.kl-ios-selectors-block.bullets2 .item.selected::before, 
+
+body .kl-ioscaption--style4 .more:before {border-color: #9ac827; background: rgba(154, 200, 39, 0.7);}
+.grid-ibx__icon img {width: 55px; margin: 0 auto;}
+
+.fun-fact .fun-thing {color: #fff;}
+.fun-fact .kl-icon img {width: 70px; margin: 0 auto; margin-bottom: 20px;}
+
+.works_carousel.stl-simple .inner-slide:hover [data-role="title"] a, 
+
+body .kl-ioscaption--style4 .more:hover:before {background: rgba(154, 200, 39, 0.9);}
+.media-container:hover .kl-title-block {padding-bottom: 10px;}
+

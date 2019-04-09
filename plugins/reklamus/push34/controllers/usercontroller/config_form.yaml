@@ -1,0 +1,10 @@
+name: UserController
+form: $/reklamus/push34/models/user/fields.yaml
+modelClass: Reklamus\Push34\Models\User
+defaultRedirect: reklamus/push34/usercontroller
+create:
+    redirect: 'reklamus/push34/usercontroller/update/:id'
+    redirectClose: reklamus/push34/usercontroller
+update:
+    redirect: reklamus/push34/usercontroller
+    redirectClose: reklamus/push34/usercontroller

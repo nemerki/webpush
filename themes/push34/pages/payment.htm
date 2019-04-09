@@ -207,8 +207,7 @@ is_hidden = 0
         $(document).ready(function () {
 
             $(document).on('click', '.paymetButton', function () {
-                 $.oc.stripeLoadIndicator.show();
-
+                $.oc.stripeLoadIndicator.show()
                 $.request('onPayment', {
                     complete: function () {
                         $.oc.stripeLoadIndicator.hide();

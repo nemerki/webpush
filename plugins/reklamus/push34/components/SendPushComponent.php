@@ -7,6 +7,7 @@ use Reklamus\Push34\Models\App;
 use Reklamus\Push34\Models\Notification;
 use Reklamus\Push34\Models\Registrant;
 use Reklamus\Push34\Models\SendToken;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use Reklamus\Push34\Classes\Firebase;
 
@@ -27,8 +28,10 @@ class SendPushComponent extends ComponentBase
 
     public function onRun()
     {
-        $user_id = Auth::getUser()->id;
-        $apps = $this->page['apps'] = App::where('user_id', $user_id)->get();
+        $app_id = Session::get('app_id');
+        $apps=$this->page['app'] = App::where('id', $app_id)->first();
+        $this->page['registrants'] = $registrants = $apps->registrants()->where('is_active', 1)->count();
+
     }
 
 
@@ -37,7 +40,7 @@ class SendPushComponent extends ComponentBase
         $app_id = post('app_id');
 
         $data = Input::all();
-        $data['push_date'] = post('push_date') ? strtotime(post('push_date')) : strtotime(date('Y-m-d H:i'), strtotime("+5 min"));
+        $data['push_date'] = post('push_date') ? strtotime(post('push_date')) : strtotime(date('Y-m-d H:i'));
         if (post('push_date') == null) {
             $data['is_cron'] = 0;
         } else {
@@ -62,6 +65,7 @@ class SendPushComponent extends ComponentBase
             $send_token->notification_id = $notification->id;
             $send_token->save();
         }
+
 
         if (post('push_date') == null) {
             $fb = new Firebase();
@@ -115,7 +119,6 @@ class SendPushComponent extends ComponentBase
 
             }
             //}
-
         }
 
     }

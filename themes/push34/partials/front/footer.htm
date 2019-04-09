@@ -1,0 +1,137 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div>
+                <div class="sbs">
+                    <ul class="menu" style="line-height: 1.7">
+                        <li><a href="#"><span>Push Notification</span></a></li>
+                        <li><a href="#"><span>Chrome</span></a></li>
+                        <li><a href="ozellikler.php">Özellikler</a></li>
+                        <li><a href="#"><span>Firefox</span></a></li>
+                        <li><a href="fiyat.php">Fiyatlandırma</a></li>
+                        <li><a href="#"><span>Android</span></a></li>
+                        <li><a href="#">blog.php</a></li>
+                        <li><a href="#">WordPress</a></li>
+                        <li><a href="iletisim.php">İletişim</a></li>
+                        <li><a href="#">Joomla</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/ col-sm-5 -->
+        <div class="col-sm-4">
+            <div class="newsletter-signup">
+                <h3 class="title m_title">BÜLTENE ÜYE OL</h3>
+                <p>Posta listemize abone olarak, bizden gelen en son haberlerle her zaman güncel olacaksınız.</p>
+
+
+
+
+
+                <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <input type="email" value="" name="e_mail" class="nl-email form-control" id="mce-EMAIL" placeholder="your.address@email.com" required>
+                    <input type="submit" name="subscribe" class="nl-submit" id="mc-embedded-subscribe" value="Bize Katıl">
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;">
+                        <input type="text" name="b_xxxxxxxxxxxxxxxxxxxCUSTOMxxxxxxxxx" value="">
+                    </div>
+
+                </form>
+
+
+
+
+
+
+                <div id="notification_container"></div>
+                <p>Asla Spam Yemessiniz</p>
+            </div><!-- end newsletter-signup -->
+        </div>
+        <!-- col-sm-4 -->
+        <div class="col-sm-4">
+            <div>
+                <h3 class="title m_title">GET IN TOUCH</h3>
+                <div class="contact-details"><p><strong>Telefon: 90 533 382 2467</strong><br>
+                        Email: <a href="mailto:zafer@reklamus.net">zafer@reklamus.net</a></p>
+                    <p>Adres<br>
+                        KATIP MUSTAFA ÇELEBI MAHALLESI, HASNUN GALIP SOKAK, NO:15 / 4 BEYOĞLU / İSTANBUL</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ col-sm-3 -->
+    </div>
+    <!--/ row -->
+    <div class="row">
+        <div class="col-sm-6 "  >
+            <div class="twitterFeed">
+                <!-- twitter feeds -->
+                <a href="https://twitter.com/@Dicospee" class="twitter-follow-button" data-show-count="false">Follow Dicospe
+                </a>
+                <!-- twitter script -->
+                <script>
+                    ! function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "//platform.twitter.com/widgets.js";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, "script", "twitter-wjs");
+                </script>
+                <!--/ twitter script -->
+            </div>
+            <!--/ twitter-feed -->
+        </div>
+        <?php
+										$cihaz = $_SERVER['HTTP_USER_AGENT'];
+										$iphone = strpos($cihaz,"iPhone");
+										$android = strpos($cihaz,"Android");
+										$ipod = strpos($cihaz,"iPod");
+										if ($iphone == true || $android == true || $ipod == true) { ?>
+
+
+
+        <?php }else{ ?>
+
+        <div class="col-sm-6" >
+            <!-- social-share buttons -->
+            <div class="social-share">
+                <!-- Facebook button -->
+                <div class="fb-like" data-href="https://www.facebook.com/Dicospe-1671237409609643/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <!--/ Facebook button -->
+                <!-- Facebook Script -->
+                <div id="fb-root"></div>
+                <script>
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1380815252226236";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
+                <!--/ Facebook Script -->
+
+                <!-- Twitter button -->
+                <div class="twitter-button">
+                    <!-- Change data-via to your own. -->
+                    <a href="https://twitter.com/share" class="twitter-share-button" data="Dicospee" data-counturl="https://dev.twitter.com/web/tweet-button">Tweet</a>
+                </div>
+            </div>
+            <!--/ social-share -->
+        </div>
+
+
+
+        <?php }?>
+        <!--/ col-sm-6 -->
+
+        <!--/ col-sm-6 -->
+    </div>
+    <!--/ row -->
+    <!--/ row -->
+</div>
+<!--/ container -->

@@ -3,12 +3,12 @@ url = "/login"
 layout = "loginLayout"
 is_hidden = 0
 
-[account]
-redirect = 0
+[resetPassword]
 paramCode = "code"
-forceSecure = 0
 
 [Register]
+
+[AcountExtend]
 ==
 <div class="m-grid m-grid--hor m-grid--root m-page">
     <div class="m-login m-login--signin  m-login--5" id="m_login"
@@ -19,20 +19,20 @@ forceSecure = 0
                     <div class="m-login__content">
                         <div class="m-login__logo">
                             <a href="#">
-                                <img src="{{ 'assets/app/media/img//logos/logo-2.png'|theme }}">
+                                <img src="{{ 'assets/logo.png'|theme }}">
                             </a>
-                        </div>
+                        </div>p
                         <div class="m-login__title">
                             <h3>
-                                JOIN OUR GREAT METRO COMMUNITY GET FREE ACCOUNT
+                                {{ 'BÜYÜK BİLDİRİM TOPLULUĞUMUZA ÜCRETİSİZ KATILIN'|_ }}
                             </h3>
                         </div>
                         <div class="m-login__desc">
-                            Amazing Stuff is Lorem Here.Grownng Team
+                            {{ 'Basit Kururulum, Gelişmiş Özellikler'|_ }}
                         </div>
                         <div class="m-login__form-action">
                             <button type="button" id="m_login_signup" class="btn btn-outline-focus m-btn--pill">
-                                Get An Account
+                                {{ 'ÜCRETSİZ KAYIT'|_ }}
                             </button>
                         </div>
                     </div>
@@ -44,57 +44,26 @@ forceSecure = 0
         </div>
         <div class="m-login__wrapper-2 m-portlet-full-height">
             <div class="m-login__contanier">
-                <div class="m-login__signin">
-                    <div class="m-login__head">
-                        <h3 class="m-login__title">
-                            Login To Your Account
-                        </h3>
-                    </div>
-                    <form class="m-login__form m-form" id="loginForm">
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="Username" name="username"
-                                   autocomplete="off">
-                        </div>
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input m-login__form-input--last" type="Password"
-                                   placeholder="Password" name="password">
-                        </div>
-                        <div class="row m-login__form-sub">
-                            <div class="col m--align-left">
-                                <label class="m-checkbox m-checkbox--focus">
-                                    <input type="checkbox" name="remember">
-                                    Remember me
-                                    <span></span>
-                                </label>
-                            </div>
-                            <div class="col m--align-right">
-                                <a href="javascript:;" id="m_login_forget_password" class="m-link">
-                                    Forget Password ?
-                                </a>
-                            </div>
-                        </div>
-                        <div class="m-login__form-action">
-                            <button id="sendLoginForm" type="button"
-                                    class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                Sign In
-                            </button>
-                        </div>
-                    </form>
-                </div>
+
+
+
+                {% component 'resetPassword' %}
+
+
                 <div class="m-login__signup">
                     <div class="m-login__head">
                         <h3 class="m-login__title">
-                            Sign Up
+                            {{ 'Kayıt'|_ }}
                         </h3>
                         <div class="m-login__desc">
-                            Enter your details to create your account:
+                            {{ ' Detayları girerek hesap oluşturun:'|_ }}
                         </div>
                     </div>
-                    <form class="m-login__form m-form" id="registerForm">
+                    <form class="m-login__form m-form" id="registerForm" data-request="onRegister"     data-request-validate data-request-flash>
 
 
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="Email" name="email"
+                            <input class="form-control m-input" type="text" placeholder="{{ 'Email'|_ }}" name="email"
                                    autocomplete="off" id="email">
                         </div>
                         <div class="form-group m-form__group row">
@@ -104,51 +73,52 @@ forceSecure = 0
                                 <option value="1">https://</option>
                             </select>
                             <input class=" col-7 form-control m-input" type="text" id="site_url"
-                                   placeholder="www.example.com"
+                                   placeholder="www.site.com"
                                    name="site_url">
                         </div>
 
-                        <div class="input-group  m-form__group">
-                            <input type="text" class="form-control m-input" name="subdomain_name"
-                                   placeholder="subdomain" id="subdomain_name"
+                        <div class="input-group form-group  m-form__group">
+                            <input type="text" class="form-control m-input w-50" name="subdomain_name"
+                                   placeholder="{{ 'alt alan'|_ }}" id="subdomain_name"
                                    aria-describedby="basic-addon2">
                             <div class="input-group-append">
 														<span class="input-group-text" id="basic-addon2">
-															push34.com
+															pushtr.com
 														</span>
                             </div>
                         </div>
 
                         <div class="form-group m-form__group ">
 
-                            <input class="form-control m-input" type="password" id="password" placeholder="Password"
+                            <input class="form-control m-input" type="password" id="password"
+                                   placeholder="{{ 'Şifre'|_ }}"
                                    name="password">
                         </div>
                         <div class="form-group m-form__group">
                             <input class="form-control m-input m-login__form-input--last" type="password"
-                                   placeholder="Confirm Password" id="password_confirmation"
+                                   placeholder="Şifre Tekrar" id="password_confirmation"
                                    name="password_confirmation">
                         </div>
                         <div class="m-login__form-sub">
                             <label class="m-checkbox m-checkbox--focus">
                                 <input type="checkbox" name="agree">
-                                I Agree the
+
                                 <a href="#" class="m-link m-link--focus">
-                                    terms and conditions
+                                    {{ ' Hüküm ve Koşulları'|_ }}
                                 </a>
-                                .
+                                {{ ' kabul ediyorum'|_ }}
                                 <span></span>
                             </label>
                             <span class="m-form__help"></span>
                         </div>
                         <div class="m-login__form-action">
-                            <button type="button" id="sendRegisterForm"
+                            <button type="submit" id="sendRegisterForm"
                                     class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                Sign Up
+                                {{ ' Kayıt'|_ }}
                             </button>
                             <button id="m_login_signup_cancel"
                                     class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
-                                Cancel
+                                {{ 'İptal'|_ }}
                             </button>
                         </div>
                     </form>
@@ -156,25 +126,26 @@ forceSecure = 0
                 <div class="m-login__forget-password">
                     <div class="m-login__head">
                         <h3 class="m-login__title">
-                            Forgotten Password ?
+                            {{ ' Şifreni mi unuttun ?'|_ }}
                         </h3>
                         <div class="m-login__desc">
-                            Enter your email to reset your password:
+                            {{ 'Şifrenizi yenilemek için Email adresinizi giriniz:'|_ }}
                         </div>
                     </div>
-                    <form class="m-login__form m-form" action="">
+                    <form class="m-login__form m-form" data-request="onRestorePassword">
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="text" placeholder="Email" name="email"
                                    id="m_email" autocomplete="off">
+
                         </div>
                         <div class="m-login__form-action">
                             <button id="m_login_forget_password_submit"
                                     class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                Request
+                                {{ ' Gönder'|_ }}
                             </button>
                             <button id="m_login_forget_password_cancel"
                                     class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom ">
-                                Cancel
+                                {{ 'İptal'|_ }}
                             </button>
                         </div>
                     </form>
@@ -187,7 +158,7 @@ forceSecure = 0
 
     <script>
         $(document).ready(function () {
-            $(document).on('click', '#sendRegisterForm', function (e) {
+         /*   $(document).on('click', '#sendRegisterForm', function (e) {
                 $.oc.stripeLoadIndicator.show()
                 var email = $('#email').val(),
                     password = $('#password').val(),
@@ -228,13 +199,19 @@ forceSecure = 0
 
                 });
             });
+            */
+
             $(document).on('click', '#sendLoginForm', function (e) {
                 $.oc.stripeLoadIndicator.show()
                 $('#loginForm').request('onSignin', {
                     complete: function () {
                         $.oc.stripeLoadIndicator.hide()
-                        window.location.href = "{{ 'dashbord'|page }}";
-                    }
+
+                    },
+                    success: function () {
+                        $.oc.stripeLoadIndicator.hide()
+
+                    },
 
 
                 });
@@ -242,5 +219,117 @@ forceSecure = 0
         });
 
     </script>
+
+
+
+
+    <script>
+        var SnippetLogin = function () {
+            var s = $("#m_login"), n = function (e, i, a) {
+                var l = $('<div class="m-alert m-alert--outline alert alert-' + i + ' alert-dismissible" role="alert">\t\t\t<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>\t\t\t<span></span>\t\t</div>');
+                e.find(".alert").remove(), l.prependTo(e), mUtil.animateClass(l[0], "fadeIn animated"), l.find("span").html(a)
+            }, o = function () {
+                s.removeClass("m-login--forget-password"), s.removeClass("m-login--signup"), s.addClass("m-login--signin"), mUtil.animateClass(s.find(".m-login__signin")[0], "flipInX animated")
+            }, e = function () {
+                $("#m_login_forget_password").click(function (e) {
+                    e.preventDefault(), s.removeClass("m-login--signin"), s.removeClass("m-login--signup"), s.addClass("m-login--forget-password"), mUtil.animateClass(s.find(".m-login__forget-password")[0], "flipInX animated")
+                }), $("#m_login_forget_password_cancel").click(function (e) {
+                    e.preventDefault(), o()
+                }), $("#m_login_signup").click(function (e) {
+                    e.preventDefault(), s.removeClass("m-login--forget-password"), s.removeClass("m-login--signin"), s.addClass("m-login--signup"), mUtil.animateClass(s.find(".m-login__signup")[0], "flipInX animated")
+                }), $("#m_login_signup_cancel").click(function (e) {
+                    e.preventDefault(), o()
+                })
+            };
+            return {
+                init: function () {
+                    e(), $("#m_login_signin_submit").click(function (e) {
+                        e.preventDefault();
+                        var t = $(this), r = $(this).closest("form");
+                        r.validate({
+                            rules: {
+                                email: {required: !0, email: !0},
+                                password: {required: !0}
+                            }
+                        }), r.valid() && (t.addClass("m-loader m-loader--right m-loader--light").attr("disabled", !0), r.ajaxSubmit({
+                            url: "",
+                            success: function (e, i, a, l) {
+                                setTimeout(function () {
+                                    t.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1), n(r, "danger", "Incorrect username or password. Please try again.")
+                                }, 2e3)
+                            }
+                        }))
+                    }), $("#m_login_signup_submit").click(function (e) {
+                        e.preventDefault();
+                        var t = $(this), r = $(this).closest("form");
+                        r.validate({
+                            rules: {
+                                fullname: {required: !0},
+                                email: {required: !0, email: !0},
+                                password: {required: !0},
+                                rpassword: {required: !0},
+                                agree: {required: !0}
+                            }
+                        }), r.valid() && (t.addClass("m-loader m-loader--right m-loader--light").attr("disabled", !0), r.ajaxSubmit({
+                            url: "",
+                            success: function (e, i, a, l) {
+                                setTimeout(function () {
+                                    t.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1), r.clearForm(), r.validate().resetForm(), o();
+                                    var e = s.find(".m-login__signin form");
+                                    e.clearForm(), e.validate().resetForm(), n(e, "success", "Thank you. To complete your registration please check your email.")
+                                }, 2e3)
+                            }
+                        }))
+                    }), $("#m_login_forget_password_submit").click(function (e) {
+                        e.preventDefault();
+                        var t = $(this), r = $(this).closest("form");
+                        r.validate({
+                            rules: {
+                                email: {
+                                    required: !0,
+                                    email: !0
+                                }
+                            }
+                        }), r.valid() && (t.addClass("m-loader m-loader--right m-loader--light").attr("disabled", !0),
+                                r.request('onRestorePassword', {
+                                    complete: function () {
+                                        $.oc.stripeLoadIndicator.hide()
+                                    },
+                                    success: function () {
+                                        setTimeout(function () {
+                                            t.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1), r.clearForm(), r.validate().resetForm(), o();
+                                            var e = s.find(".m-login__signin form");
+                                            e.clearForm(), e.validate().resetForm(), n(e, "success", "Şifre kurtarma talimatı e-postanıza gönderildi.")
+                                        }, 2e3)
+
+                                    },
+                                    error: function () {
+                                        e.preventDefault(), s.removeClass("m-login--signin"), s.removeClass("m-login--signup"), s.addClass("m-login--forget-password"), mUtil.animateClass(s.find(".m-login__forget-password")[0], "flipInX animated")
+
+
+                                    },
+
+
+                                })
+
+                        )
+                    })
+                }
+            }
+        }();
+        jQuery(document).ready(function () {
+            SnippetLogin.init()
+        });
+    </script>
+
+{% endput %}
+
+{% put styles %}
+
+    <style>
+        input.form-control.m-input {
+            padding-left: 20px !important;
+        }
+    </style>
 
 {% endput %}

@@ -1,4 +1,6 @@
 columns:
-    id:
-        label: ıd
+    app:
+        label: App
         type: text
+        select: subdomain_name
+        relation: app

@@ -1,5 +1,9 @@
 fields:
-    id:
-        label: Id
+    site_url:
+        label: 'Site Url'
+        span: auto
+        type: text
+    subdomain_name:
+        label: Subdomain
         span: auto
         type: text

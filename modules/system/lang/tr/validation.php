@@ -56,7 +56,7 @@ return [
     "not_in"            => "Seçili :attribute geçersiz.",
     "numeric"           => ":attribute rakam olmalıdır.",
     "regex"             => ":attribute biçimi geçersiz.",
-    "required"          => ":attribute alanı gereklidir.",
+    "required"          => "bu alan gereklidir.",
     "required_if"       => ":attribute alanı, :other :value değerine sahip olduğunda zorunludur.",
     "required_with"     => ":attribute alanı :values varken zorunludur.",
     "required_without"  => ":attribute alanı :values yokken zorunludur.",
@@ -94,6 +94,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'subdomain_name'=>'bu alt alan '
+    ],
 
 ];

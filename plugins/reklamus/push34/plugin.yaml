@@ -68,3 +68,7 @@ navigation:
                 icon: icon-shopping-cart
                 permissions:
                     - manage_plan
+            side-menu-user:
+                label: User
+                url: reklamus/push34/usercontroller
+                icon: icon-user

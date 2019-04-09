@@ -234,7 +234,8 @@ class Account extends ComponentBase
 
             $rules = [
                 'email'    => 'required|email|between:6,255',
-                'password' => 'required|between:4,255|confirmed'
+                'password' => 'required|between:4,255|confirmed',
+
             ];
 
             if ($this->loginAttribute() == UserSettings::LOGIN_USERNAME) {
@@ -280,6 +281,10 @@ class Account extends ComponentBase
             if ($redirect = $this->makeRedirection(true)) {
                 return $redirect;
             }
+
+            Mail::send('yeni_kullanıcı', $data, function($message) use ($user) {
+                $message->to($user->email, $user->full_name);
+            });
         }
         catch (Exception $ex) {
             if (Request::ajax()) throw $ex;

@@ -14,12 +14,12 @@ is_hidden = 0
 								<li class="nav-item m-tabs__item">
 									<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
 										<i class="flaticon-share m--hide"></i>
-										Profile
+										{{ 'Profil'|_ }}
 									</a>
 								</li>
 								<li class="nav-item m-tabs__item">
 									<a class="nav-link m-tabs__link " data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
-										Password
+										{{ 'Şifre'|_ }}
 									</a>
 								</li>
 
@@ -29,7 +29,11 @@ is_hidden = 0
 					</div>
 					<div class="tab-content">
 						<div class="tab-pane active " id="m_user_profile_tab_1">
-							<form class="m-form m-form--fit m-form--label-align-right" id="profileForm">
+							<form class="m-form m-form--fit m-form--label-align-right" id="profileForm"
+								  data-request="onUpdate"
+								  data-request-validate
+								  data-request-flash
+								  data-request-files>
 								<div class="m-portlet__body">
 									<div class="form-group m-form__group m--margin-top-10 m--hide">
 										<div class="alert m-alert m-alert--default" role="alert">
@@ -39,13 +43,13 @@ is_hidden = 0
 									<div class="form-group m-form__group row">
 										<div class="col-10 ml-auto">
 											<h3 class="m-form__section">
-												User Profile
+												{{ 'Üye Profili'|_ }}
 											</h3>
 										</div>
 									</div>
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											Email
+											{{ 'Email'|_ }}
 										</label>
 										<div class="col-7">
 											<input name="email" class="form-control m-input" type="email" value="{{ user.email }}">
@@ -53,7 +57,7 @@ is_hidden = 0
 									</div>
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											Name
+											{{ 'Ad'|_ }}
 										</label>
 										<div class="col-7">
 											<input name="name" class="form-control m-input" type="text"
@@ -62,7 +66,7 @@ is_hidden = 0
 									</div>
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											Surname
+											{{ 'Soyad'|_ }}
 										</label>
 										<div class="col-7">
 											<input name="surname" class="form-control m-input" value="{{ user.surname }}" type="text">
@@ -71,7 +75,7 @@ is_hidden = 0
 
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											Company Name
+											{{ 'Şirket Adı'|_ }}
 										</label>
 										<div class="col-7">
 											<input class="form-control m-input" name="company_name" type="text" value="{{ user.company_name }}">
@@ -80,12 +84,30 @@ is_hidden = 0
 									</div>
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											Phone No.
+											{{ 'Telefon No'|_ }}
 										</label>
 										<div class="col-7">
 											<input class="form-control m-input" type="text" name="phone" value="{{ user.phone }}">
 										</div>
 									</div>
+
+									<div class="form-group m-form__group row">
+										<label for="example-text-input" class="col-2 col-form-label">
+                                            {{ 'Resim'|_ }}
+										</label>
+										<div class="col-md-5">
+											<div style=" height: 100px ;">
+												<img style="max-height: 100%" src="{{  user.avatar| resize(500, false, { mode: 'crop', quality: '80', extension: 'png' }) }}" class="preview img-fluid"
+													 alt="">
+											</div>
+										</div>
+										<div class="custom-file col-md-2">
+											<input type="file" name="avatar" class="custom-file-input" id="customFile">
+											<label class="custom-file-label selected" for="customFile"></label>
+										</div>
+
+									</div>
+
 
 								</div>
 								<div class="m-portlet__foot m-portlet__foot--fit">
@@ -93,12 +115,12 @@ is_hidden = 0
 										<div class="row">
 											<div class="col-2"></div>
 											<div class="col-7">
-												<button type="button" id="profileSaveBtn" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-													Save changes
+												<button type="submit" id="profileSaveBtn" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+													{{ 'Kaydet'|_ }}
 												</button>
 												&nbsp;&nbsp;
 
-												<a href="{{ 'dashbord'|page }}"  class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</a>
+												<a href="{{ 'dashbord'|page }}"  class="btn btn-secondary m-btn m-btn--air m-btn--custom">{{ 'İptal'|_ }}</a>
 											</div>
 										</div>
 									</div>
@@ -116,14 +138,14 @@ is_hidden = 0
 									<div class="form-group m-form__group row">
 										<div class="col-10 ml-auto">
 											<h3 class="m-form__section">
-												Reset Pasword
+												{{ 'Şifre Yenile'|_ }}
 											</h3>
 										</div>
 									</div>
 
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											 Pasword
+											 {{ 'Şifre'|_ }}
 										</label>
 										<div class="col-7">
 											<input name="password" class="form-control m-input" type="password">
@@ -131,7 +153,7 @@ is_hidden = 0
 									</div>
 									<div class="form-group m-form__group row">
 										<label for="example-text-input" class="col-2 col-form-label">
-											Pasword Return
+											{{ 'Şifre Tekrar'|_ }}
 										</label>
 										<div class="col-7">
 											<input name="password_confirmation" class="form-control m-input" type="password">
@@ -147,7 +169,7 @@ is_hidden = 0
 											<div class="col-2"></div>
 											<div class="col-7">
 												<button type="button" id="changePasword" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-													Save changes
+													{{ 'Kaydet'|_ }}
 												</button>
 												&nbsp;&nbsp;
 
@@ -167,15 +189,7 @@ is_hidden = 0
 
     <script>
         $(document).ready(function () {
-            $(document).on('click', '#profileSaveBtn', function () {
-                $.oc.stripeLoadIndicator.show()
-                $('#profileForm').request('onUpdate', {
 
-                    complete: function () {
-                        $.oc.stripeLoadIndicator.hide()
-                    }
-                });
-            })
 			$(document).on('click', '#changePasword', function () {
                 $.oc.stripeLoadIndicator.show()
                 $('#changePaswordForm').request('onUpdate', {
@@ -187,5 +201,16 @@ is_hidden = 0
             })
         });
     </script>
+
+{% endput %}
+
+{% put styles %}
+
+    <style>
+		.custom-file-label{
+			border: none;
+			right: auto;
+		}
+    </style>
 
 {% endput %}

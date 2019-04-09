@@ -32,4 +32,8 @@ class Notification extends Model
         'send_tokens' => ['Reklamus\Push34\Models\SendToken', 'key' => 'notification_id', 'softDelete' => true],
     ];
 
+    public $belongsTo = [
+        'app' => ['Reklamus\Push34\Models\App'],
+    ];
+
 }

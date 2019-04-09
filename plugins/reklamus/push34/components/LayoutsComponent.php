@@ -25,7 +25,15 @@ class LayoutsComponent extends ComponentBase
     {
         $user_id = Auth::getUser()->id;
         $this->page['activeApps'] = App::where('user_id', $user_id)->get();
+        $app = App::where('user_id', $user_id)->with('registrants')->first();
 
+        $registrant_count = $this->page['registrant_count'] = $app->registrants->count();
+        $registrant_remain = 2000 - $registrant_count;
+        if ($registrant_remain >= 0) {
+            $this->page['registrant_remain'] = 2000 - $registrant_count;
+        } else {
+            $this->page['registrant_remain'] = 0;
+        }
         if (session()->has('app_id')) {
             $app_id = Session::get('app_id');
             $this->page['app_id'] = $app_id;
